@@ -29,9 +29,25 @@ def generate_launch_description():
         output='screen'
     )
 
+    diff_drive_spawner = Node(
+        package='controller',
+        executable='spawner.py',
+        arguments=['diff_cont'],
+        output='screen'
+    )
+
+    joint_broad_spawner = Node(
+        package='controller',
+        executable='spawner.py',
+        arguments=['diff_cont'],
+        output='screen'
+    )
+
     # Launch them all!
     return LaunchDescription([
         rsp,
         gazebo,
         spawn_entity,
+        diff_drive_spawner,
+        joint_broad_spawner
     ])
